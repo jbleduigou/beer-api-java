@@ -1,0 +1,33 @@
+spring:
+  jackson:
+    default-property-inclusion: non_null
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  datasource:
+    platform: postgres
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/imf}
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
+
+management:
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+    health:
+      enabled: true
+      show-details: always
