@@ -21,7 +21,6 @@ import static com.github.jbleduigou.beer.matchers.BeerMatchers.beerWithAbv;
 import static com.github.jbleduigou.beer.matchers.BeerMatchers.beerWithName;
 import static org.hamcrest.Matchers.both;
 import static org.hamcrest.Matchers.hasItem;
-import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
@@ -45,7 +44,7 @@ public class BeerServiceTest {
             Arrays.asList(new Beer(1337L, "Punk IPA", 5.6),
                     new Beer(9531L, "Nanny State", 0.5)));
     when(repository.findById(3457L)).thenReturn(Optional.empty());
-    when(repository.findById(9531L)).thenReturn(Optional.of(new Beer(9531L, "Nanny State", 3.5)));
+    when(repository.findById(9531L)).thenReturn(Optional.of(new Beer(9531L, "Nanny State", 0.5)));
   }
 
   @Test
