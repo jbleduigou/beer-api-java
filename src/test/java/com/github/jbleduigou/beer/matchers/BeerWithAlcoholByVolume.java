@@ -17,7 +17,7 @@ class BeerWithAlcoholByVolume extends TypeSafeMatcher<Beer> {
 
   @Override
   protected boolean matchesSafely(Beer beer) {
-    return beer != null && Objects.equals(beer.getAlcoholByVolume(), alcoholByVolume);
+    return Objects.equals(beer.getAlcoholByVolume(), alcoholByVolume);
   }
 
   @Override
@@ -27,7 +27,7 @@ class BeerWithAlcoholByVolume extends TypeSafeMatcher<Beer> {
 
   @Override
   protected void describeMismatchSafely(Beer item, Description mismatchDescription) {
-    mismatchDescription.appendText("but alcoholByVolume was ");
+    mismatchDescription.appendText("alcoholByVolume was ");
     mismatchDescription.appendValue(item.getAlcoholByVolume());
   }
 }

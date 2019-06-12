@@ -17,7 +17,7 @@ class BeerWithName extends TypeSafeMatcher<Beer> {
 
   @Override
   protected boolean matchesSafely(Beer beer) {
-    return beer != null && Objects.equals(beer.getName(), name);
+    return Objects.equals(beer.getName(), name);
   }
 
   @Override
@@ -27,7 +27,7 @@ class BeerWithName extends TypeSafeMatcher<Beer> {
 
   @Override
   protected void describeMismatchSafely(Beer item, Description mismatchDescription) {
-    mismatchDescription.appendText("but name was ");
+    mismatchDescription.appendText("name was ");
     mismatchDescription.appendValue(item.getName());
   }
 }
